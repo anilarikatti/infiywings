@@ -182,17 +182,17 @@ export default function InfiyWings() {
 
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
-    
+
     const errors = {};
-    
+
     if (!paymentData.name.trim()) {
       errors.name = 'Name is required';
     }
-    
+
     if (!validateEmail(paymentData.email)) {
       errors.email = 'Please enter a valid email address (e.g., user@example.com)';
     }
-    
+
     if (!validatePhone(paymentData.phone)) {
       errors.phone = 'Please enter a valid 10-digit phone number';
     }
@@ -207,17 +207,17 @@ export default function InfiyWings() {
       } else if (!validateCardNumber(paymentData.cardNumber)) {
         errors.cardNumber = 'Please enter a valid 16-digit card number';
       }
-      
+
       if (!paymentData.cardName.trim()) {
         errors.cardName = 'Cardholder name is required';
       }
-      
+
       if (!paymentData.cardExpiry.trim()) {
         errors.cardExpiry = 'Expiry date is required';
       } else if (!validateExpiry(paymentData.cardExpiry)) {
         errors.cardExpiry = 'Please enter expiry in MM/YY format (e.g., 12/25)';
       }
-      
+
       if (!paymentData.cardCVV.trim()) {
         errors.cardCVV = 'CVV is required';
       } else if (!validateCVV(paymentData.cardCVV)) {
@@ -245,7 +245,7 @@ export default function InfiyWings() {
 
     setPaymentErrors({});
     const totalPrice = selectedPackageForPayment.price * paymentData.tickets;
-    
+
     setPaymentDetails({
       bookingId: 'INF' + Math.random().toString(36).substr(2, 9).toUpperCase(),
       name: paymentData.name,
@@ -258,7 +258,7 @@ export default function InfiyWings() {
       paymentMethod: paymentData.paymentMethod,
       date: new Date().toLocaleDateString()
     });
-    
+
     setPaymentSuccess(true);
   };
 
@@ -282,23 +282,22 @@ export default function InfiyWings() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="bg-white shadow-md fixed w-full top-0 z-50">
+    <div className="min-h-screen bg-white font-sans text-gray-900">
+      <nav className="bg-white/90 backdrop-blur-md shadow-lg fixed w-full top-0 z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
               <Plane className="h-8 w-8 text-blue-600" />
               <span className="text-2xl font-bold text-gray-800">Infiy Wings</span>
             </div>
-            
+
             <div className="hidden md:flex space-x-8">
               {['home', 'about', 'packages', 'contact'].map((page) => (
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`text-gray-700 hover:text-blue-600 capitalize font-medium transition ${
-                    currentPage === page ? 'text-blue-600 border-b-2 border-blue-600' : ''
-                  }`}
+                  className={`text-gray-700 hover:text-blue-600 capitalize font-medium transition ${currentPage === page ? 'text-blue-600 border-b-2 border-blue-600' : ''
+                    }`}
                 >
                   {page}
                 </button>
@@ -306,7 +305,7 @@ export default function InfiyWings() {
             </div>
 
             <button className="text-white ">
-                  _____________________________
+              _____________________________
             </button>
 
             <button
@@ -328,9 +327,8 @@ export default function InfiyWings() {
                     setCurrentPage(page);
                     setMobileMenuOpen(false);
                   }}
-                  className={`block w-full text-left py-2 capitalize ${
-                    currentPage === page ? 'text-blue-600 font-semibold' : 'text-gray-700'
-                  }`}
+                  className={`block w-full text-left py-2 capitalize ${currentPage === page ? 'text-blue-600 font-semibold' : 'text-gray-700'
+                    }`}
                 >
                   {page}
                 </button>
@@ -341,83 +339,130 @@ export default function InfiyWings() {
       </nav>
 
       {currentPage === 'home' && (
-        <div className="mt-16">
-          <div className="relative h-screen bg-gradient-to-r from-blue-600 to-blue-800">
-            <div className="absolute inset-0 bg-black opacity-40"></div>
-            <div className="relative h-full flex items-center justify-center text-center px-4">
-              <div className="text-white max-w-4xl">
-                <h1 className="text-5xl md:text-6xl font-bold mb-6">Discover Your Next Adventure</h1>
-                <p className="text-xl md:text-2xl mb-8">Explore the world with Infiy Wings</p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
-                    onClick={() => setCurrentPage('packages')}
-                    className="bg-orange-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-600 transition"
-                  >
-                    Explore Packages
-                  </button>
-                  <button
-                    onClick={() => setCurrentPage('about')}
-                    className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition"
-                  >
-                    Learn More
-                  </button>
-                </div>
+        <div className="mt-0">
+          <div className="relative h-screen flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 z-0">
+              <img
+                src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2021&q=80"
+                alt="Travel Background"
+                className="w-full h-full object-cover transform scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent"></div>
+            </div>
+
+            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+              <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl animate-fade-in tracking-tight">
+                Discover Your <span className="text-blue-400">Next Adventure</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-100 mb-10 max-w-3xl mx-auto font-light animate-slide-up">
+                Experience the world's most breathtaking destinations with perfectly curated travel packages designed just for you.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-5 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <button
+                  onClick={() => setCurrentPage('packages')}
+                  className="bg-blue-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50"
+                >
+                  Start Exploring
+                </button>
+                <button
+                  onClick={() => setCurrentPage('about')}
+                  className="bg-white/10 backdrop-blur-sm border-2 border-white/80 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-blue-900 transition-all duration-300"
+                >
+                  Learn More
+                </button>
               </div>
+            </div>
+
+            <div className="absolute bottom-10 left-0 right-0 text-center text-white/50 animate-bounce">
+              <p className="text-sm uppercase tracking-widest">Scroll to Explore</p>
+              <div className="mt-2 text-2xl">↓</div>
             </div>
           </div>
 
-          <div className="py-20 bg-gray-50">
+          <div className="py-24 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-12">Why Choose Us</h2>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Why Choose Infiy Wings</h2>
+                <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                <p className="mt-4 text-xl text-gray-600">We make your travel experience seamless and unforgettable</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 {[
-                  { icon: Award, title: 'Best Prices', desc: 'Guaranteed competitive rates' },
-                  { icon: HeadphonesIcon, title: '24/7 Support', desc: 'Round the clock assistance' },
-                  { icon: Shield, title: 'Secure Booking', desc: 'Safe and protected transactions' },
-                  { icon: Globe, title: 'Expert Guides', desc: 'Experienced travel professionals' }
+                  { icon: Award, title: 'Best Prices', desc: 'We guarantee competitive rates and exclusive deals you won\'t find elsewhere.' },
+                  { icon: HeadphonesIcon, title: '24/7 Support', desc: 'Our dedicated team is available round the clock to assist you with any query.' },
+                  { icon: Shield, title: 'Secure Booking', desc: 'Your data and transactions are protected with top-tier security standards.' },
+                  { icon: Globe, title: 'Expert Guides', desc: 'Travel with confidence alongside our experienced and knowledgeable local experts.' }
                 ].map((feature, idx) => (
-                  <div key={idx} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition">
-                    <feature.icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.desc}</p>
+                  <div key={idx} className="group bg-gray-50 p-8 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-2xl hover:-translate-y-2 border border-transparent hover:border-blue-100">
+                    <div className="h-14 w-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 transition-all group-hover:bg-blue-600 group-hover:text-white">
+                      <feature.icon className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900">{feature.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="py-20">
+          <div className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-12">Popular Packages</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="flex justify-between items-end mb-12">
+                <div>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-2">Popular Destinations</h2>
+                  <p className="text-gray-600 text-lg">Curated packages for your next unforgettable journey</p>
+                </div>
+                <button
+                  onClick={() => setCurrentPage('packages')}
+                  className="hidden md:block text-blue-600 font-semibold hover:text-blue-700 hover:translate-x-1 transition flex items-center"
+                >
+                  View All Packages <span className="ml-2">→</span>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {packages.slice(0, 3).map((pkg) => (
-                  <div key={pkg.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
-                    <div className="relative">
-                      <img src={pkg.image} alt={pkg.name} className="w-full h-48 object-cover" />
+                  <div key={pkg.id} className="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    <div className="relative h-64 overflow-hidden">
+                      <img
+                        src={pkg.image}
+                        alt={pkg.name}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       {pkg.badge && (
-                        <span className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        <span className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                           {pkg.badge}
                         </span>
                       )}
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2">{pkg.name}</h3>
-                      <div className="flex items-center text-gray-600 text-sm mb-2">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        <span>{pkg.duration}</span>
+                    <div className="p-8">
+                      <div className="flex justify-between items-start mb-4">
+                        <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{pkg.name}</h3>
+                        <div className="flex items-center bg-blue-50 px-2 py-1 rounded text-blue-600 text-sm font-bold">
+                          <Star className="h-4 w-4 fill-current mr-1" />
+                          {pkg.rating}
+                        </div>
                       </div>
-                      <div className="flex items-center mb-3">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className={`h-4 w-4 ${i < Math.floor(pkg.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} />
-                        ))}
-                        <span className="ml-2 text-sm text-gray-600">({pkg.rating})</span>
+
+                      <p className="text-gray-600 mb-6 line-clamp-2">{pkg.description}</p>
+
+                      <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 border-b border-gray-100 pb-6">
+                        <div className="flex items-center">
+                          <Calendar className="h-4 w-4 mr-2 text-blue-500" />
+                          {pkg.duration}
+                        </div>
                       </div>
-                      <p className="text-gray-600 text-sm mb-4">{pkg.description}</p>
+
                       <div className="flex justify-between items-center">
-                        <span className="text-2xl font-bold text-blue-600">From ${pkg.price}</span>
-                        <button 
+                        <div>
+                          <p className="text-sm text-gray-500">Starting from</p>
+                          <span className="text-3xl font-bold text-gray-900">${pkg.price}</span>
+                        </div>
+                        <button
                           onClick={() => handleViewDetails(pkg.id)}
-                          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                          className="bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-600 transition-colors font-semibold shadow-lg"
                         >
                           View Details
                         </button>
@@ -426,10 +471,11 @@ export default function InfiyWings() {
                   </div>
                 ))}
               </div>
-              <div className="text-center mt-8">
+
+              <div className="text-center mt-12 md:hidden">
                 <button
                   onClick={() => setCurrentPage('packages')}
-                  className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition"
+                  className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition font-semibold"
                 >
                   View All Packages
                 </button>
@@ -437,24 +483,53 @@ export default function InfiyWings() {
             </div>
           </div>
 
-          <div className="py-20 bg-gray-50">
+          <div className="py-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-4xl font-bold text-center mb-12">What Our Travelers Say</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Travelers Say</h2>
+                <p className="text-xl text-gray-600">Stories from the people who have traveled with us</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 {testimonials.map((testimonial, idx) => (
-                  <div key={idx} className="bg-white p-6 rounded-lg shadow-md">
-                    <div className="flex items-center mb-4">
+                  <div key={idx} className="relative bg-blue-50 p-10 rounded-3xl hover:bg-white hover:shadow-xl transition-all duration-300">
+                    <div className="absolute top-8 right-8 opacity-10">
+                      <svg height="48" width="48" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.896 14.353 15.925 15.025 15.087C15.696 14.249 16.637 13.567 17.848 13.039C16.907 13.125 16.202 12.986 15.733 12.622C15.263 12.258 15.028 11.758 15.028 11.122C15.028 10.166 15.344 9.426 15.976 8.902C16.608 8.378 17.375 8.116 18.277 8.116C19.141 8.116 19.866 8.448 20.453 9.112C21.039 9.776 21.332 10.686 21.332 11.842C21.332 13.626 20.816 15.178 19.784 16.498C18.752 17.818 17.158 18.675 15.002 19.069L14.017 21ZM4.01705 21L4.01705 18C4.01705 16.896 4.35305 15.925 5.02505 15.087C5.69705 14.249 6.63705 13.567 7.84805 13.039C6.90705 13.125 6.20205 12.986 5.73305 12.622C5.26405 12.258 5.02905 11.758 5.02905 11.122C5.02905 10.166 5.34505 9.426 5.97705 8.902C6.60905 8.378 7.37605 8.116 8.27805 8.116C9.14205 8.116 9.86705 8.448 10.454 9.112C11.041 9.776 11.334 10.686 11.334 11.842C11.334 13.626 10.818 15.178 9.78205 16.498C8.74605 17.818 7.15205 18.675 5.00205 19.069L4.01705 21Z" /></svg>
+                    </div>
+                    <div className="flex items-center mb-6">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-gray-700 mb-4 italic">{testimonial.text}</p>
-                    <div>
-                      <p className="font-semibold">{testimonial.name}</p>
-                      <p className="text-sm text-gray-600">{testimonial.location}</p>
+                    <p className="text-gray-700 mb-8 italic text-lg leading-relaxed">"{testimonial.text}"</p>
+                    <div className="flex items-center">
+                      <div className="h-12 w-12 rounded-full bg-blue-200 flex items-center justify-center text-blue-700 font-bold text-xl mr-4">
+                        {testimonial.name[0]}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
+                        <p className="text-sm text-gray-500">{testimonial.location}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            <div className="mt-20 py-20 bg-blue-600 text-center relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white mix-blend-overlay blur-3xl"></div>
+                <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-white mix-blend-overlay blur-3xl"></div>
+              </div>
+              <div className="relative z-10 max-w-4xl mx-auto px-4">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Start Your Adventure?</h2>
+                <p className="text-xl text-blue-100 mb-10">Join thousands of satisfied travelers and experience the world like never before.</p>
+                <button
+                  onClick={() => setCurrentPage('packages')}
+                  className="bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition shadow-lg shrink-0"
+                >
+                  Find Your Trip
+                </button>
               </div>
             </div>
           </div>
@@ -462,12 +537,19 @@ export default function InfiyWings() {
       )}
 
       {currentPage === 'about' && (
-        <div className="mt-16">
-          <div className="relative h-64 bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-            <div className="relative text-center text-white">
-              <h1 className="text-5xl font-bold mb-2">About Infiy Wings</h1>
-              <p className="text-xl">Crafting Unforgettable Travel Experiences</p>
+        <div className="mt-0">
+          <div className="relative h-96 flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0">
+              <img
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=2074&auto=format&fit=crop"
+                alt="About Us"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/50"></div>
+            </div>
+            <div className="relative text-center text-white z-10 pt-16">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">About Infiy Wings</h1>
+              <p className="text-xl md:text-2xl font-light animate-slide-up">Crafting Unforgettable Travel Experiences</p>
             </div>
           </div>
 
@@ -477,17 +559,17 @@ export default function InfiyWings() {
                 <div>
                   <h2 className="text-4xl font-bold mb-6">Our Story</h2>
                   <p className="text-gray-700 mb-4">
-                    Since 2010, Infiy Wings has been passionate about creating extraordinary travel experiences. 
-                    What started as a small dream has grown into a trusted travel partner for thousands of adventurers 
+                    Since 2010, Infiy Wings has been passionate about creating extraordinary travel experiences.
+                    What started as a small dream has grown into a trusted travel partner for thousands of adventurers
                     around the globe.
                   </p>
                   <p className="text-gray-700 mb-4">
-                    We believe that travel is more than just visiting new places. It is about creating memories, 
-                    discovering cultures, and transforming perspectives. Our dedicated team works tirelessly to 
+                    We believe that travel is more than just visiting new places. It is about creating memories,
+                    discovering cultures, and transforming perspectives. Our dedicated team works tirelessly to
                     ensure every journey with us is seamless and unforgettable.
                   </p>
                   <p className="text-gray-700">
-                    From exotic beaches to mountain peaks, bustling cities to serene countryside, we curate 
+                    From exotic beaches to mountain peaks, bustling cities to serene countryside, we curate
                     experiences that cater to every traveler dream.
                   </p>
                 </div>
@@ -551,12 +633,19 @@ export default function InfiyWings() {
       )}
 
       {currentPage === 'packages' && (
-        <div className="mt-16">
-          <div className="relative h-64 bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-            <div className="relative text-center text-white">
-              <h1 className="text-5xl font-bold mb-2">Travel Packages</h1>
-              <p className="text-xl">Find Your Perfect Getaway</p>
+        <div className="mt-0">
+          <div className="relative h-96 flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0">
+              <img
+                src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2070&auto=format&fit=crop"
+                alt="Packages"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/50"></div>
+            </div>
+            <div className="relative text-center text-white z-10 pt-16">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Travel Packages</h1>
+              <p className="text-xl md:text-2xl font-light animate-slide-up">Find Your Perfect Getaway</p>
             </div>
           </div>
 
@@ -564,8 +653,8 @@ export default function InfiyWings() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {packages.map((pkg) => (
-                  <div 
-                    key={pkg.id} 
+                  <div
+                    key={pkg.id}
                     id={`package-${pkg.id}`}
                     className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition ${selectedPackageId === pkg.id ? 'ring-4 ring-blue-500' : ''}`}
                   >
@@ -609,7 +698,7 @@ export default function InfiyWings() {
                           <div className="text-sm text-gray-600">From</div>
                           <div className="text-3xl font-bold text-blue-600">${pkg.price}</div>
                         </div>
-                        <button 
+                        <button
                           onClick={() => handleBookNow(pkg.id)}
                           className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
                         >
@@ -626,12 +715,19 @@ export default function InfiyWings() {
       )}
 
       {currentPage === 'payment' && selectedPackageForPayment && (
-        <div className="mt-16">
-          <div className="relative h-64 bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-            <div className="relative text-center text-white">
-              <h1 className="text-5xl font-bold mb-2">Complete Your Booking</h1>
-              <p className="text-xl">Secure Payment Gateway</p>
+        <div className="mt-0">
+          <div className="relative h-96 flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0">
+              <img
+                src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop"
+                alt="Payment"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/60"></div>
+            </div>
+            <div className="relative text-center text-white z-10 pt-16">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Complete Your Booking</h1>
+              <p className="text-xl md:text-2xl font-light animate-slide-up">Secure Payment Gateway</p>
             </div>
           </div>
 
@@ -641,7 +737,7 @@ export default function InfiyWings() {
                 <div className="lg:col-span-2">
                   <div className="bg-white rounded-lg shadow-lg p-8">
                     <h2 className="text-3xl font-bold mb-6">Payment Details</h2>
-                    
+
                     {Object.keys(paymentErrors).length > 0 && (
                       <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
                         <h3 className="font-semibold mb-2">Please fix the following errors:</h3>
@@ -652,7 +748,7 @@ export default function InfiyWings() {
                         </ul>
                       </div>
                     )}
-                    
+
                     <form onSubmit={handlePaymentSubmit} className="space-y-6">
                       <div>
                         <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
@@ -846,14 +942,14 @@ export default function InfiyWings() {
                 <div className="lg:col-span-1">
                   <div className="bg-white rounded-lg shadow-lg p-6 sticky top-20">
                     <h3 className="text-2xl font-bold mb-4">Booking Summary</h3>
-                    <img 
-                      src={selectedPackageForPayment.image} 
-                      alt={selectedPackageForPayment.name} 
+                    <img
+                      src={selectedPackageForPayment.image}
+                      alt={selectedPackageForPayment.name}
                       className="w-full h-48 object-cover rounded-lg mb-4"
                     />
                     <h4 className="text-xl font-semibold mb-2">{selectedPackageForPayment.name}</h4>
                     <p className="text-gray-600 mb-4">{selectedPackageForPayment.duration}</p>
-                    
+
                     <div className="border-t pt-4 space-y-2">
                       <div className="flex justify-between">
                         <span className="text-gray-600">Price per ticket:</span>
@@ -885,12 +981,19 @@ export default function InfiyWings() {
       )}
 
       {currentPage === 'contact' && (
-        <div className="mt-16">
-          <div className="relative h-64 bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-            <div className="relative text-center text-white">
-              <h1 className="text-5xl font-bold mb-2">Get In Touch</h1>
-              <p className="text-xl">We are here to help you plan your perfect trip</p>
+        <div className="mt-0">
+          <div className="relative h-96 flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0">
+              <img
+                src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2070&auto=format&fit=crop"
+                alt="Contact Us"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/50"></div>
+            </div>
+            <div className="relative text-center text-white z-10 pt-16">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-fade-in">Get In Touch</h1>
+              <p className="text-xl md:text-2xl font-light animate-slide-up">We are here to help you plan your perfect trip</p>
             </div>
           </div>
 
@@ -1031,10 +1134,10 @@ export default function InfiyWings() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
               </div>
-              
+
               <h2 className="text-3xl font-bold text-gray-900 mb-2">Payment Successful!</h2>
               <p className="text-gray-600 mb-6">Your booking has been confirmed</p>
-              
+
               <div className="bg-gray-50 rounded-lg p-6 text-left space-y-3 mb-6">
                 <div className="flex justify-between border-b pb-2">
                   <span className="text-gray-600">Booking ID:</span>
@@ -1073,11 +1176,11 @@ export default function InfiyWings() {
                   <span className="text-green-600">${paymentDetails.totalPrice}</span>
                 </div>
               </div>
-              
+
               <p className="text-sm text-gray-600 mb-6">
                 A confirmation email has been sent to {paymentDetails.email}
               </p>
-              
+
               <button
                 onClick={closePaymentPopup}
                 className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold"

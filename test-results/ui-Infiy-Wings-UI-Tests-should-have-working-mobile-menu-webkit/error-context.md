@@ -1,0 +1,177 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e7] [cursor=pointer]:
+        - img [ref=e8]
+        - generic [ref=e10]: Infiy Wings
+      - button "_____________________________" [ref=e11] [cursor=pointer]
+      - button [ref=e12] [cursor=pointer]:
+        - img [ref=e13]
+  - generic [ref=e14]:
+    - generic [ref=e18]:
+      - heading "Discover Your Next Adventure" [level=1] [ref=e19]
+      - paragraph [ref=e20]: Explore the world with Infiy Wings
+      - generic [ref=e21]:
+        - button "Explore Packages" [ref=e22] [cursor=pointer]
+        - button "Learn More" [ref=e23] [cursor=pointer]
+    - generic [ref=e25]:
+      - heading "Why Choose Us" [level=2] [ref=e26]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - img [ref=e29]
+          - heading "Best Prices" [level=3] [ref=e32]
+          - paragraph [ref=e33]: Guaranteed competitive rates
+        - generic [ref=e34]:
+          - img [ref=e35]
+          - heading "24/7 Support" [level=3] [ref=e37]
+          - paragraph [ref=e38]: Round the clock assistance
+        - generic [ref=e39]:
+          - img [ref=e40]
+          - heading "Secure Booking" [level=3] [ref=e42]
+          - paragraph [ref=e43]: Safe and protected transactions
+        - generic [ref=e44]:
+          - img [ref=e45]
+          - heading "Expert Guides" [level=3] [ref=e48]
+          - paragraph [ref=e49]: Experienced travel professionals
+    - generic [ref=e51]:
+      - heading "Popular Packages" [level=2] [ref=e52]
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - img "Bali Beach Paradise" [ref=e56]
+            - generic [ref=e57]: Popular
+          - generic [ref=e58]:
+            - heading "Bali Beach Paradise" [level=3] [ref=e59]
+            - generic [ref=e60]:
+              - img [ref=e61]
+              - generic [ref=e63]: 7 Days / 6 Nights
+            - generic [ref=e64]:
+              - img [ref=e65]
+              - img [ref=e67]
+              - img [ref=e69]
+              - img [ref=e71]
+              - img [ref=e73]
+              - generic [ref=e75]: (4.8)
+            - paragraph [ref=e76]: Experience the magic of Bali with pristine beaches and cultural wonders
+            - generic [ref=e77]:
+              - generic [ref=e78]: From $1299
+              - button "View Details" [ref=e79] [cursor=pointer]
+        - generic [ref=e80]:
+          - generic [ref=e81]:
+            - img "Swiss Alps Adventure" [ref=e82]
+            - generic [ref=e83]: New
+          - generic [ref=e84]:
+            - heading "Swiss Alps Adventure" [level=3] [ref=e85]
+            - generic [ref=e86]:
+              - img [ref=e87]
+              - generic [ref=e89]: 10 Days / 9 Nights
+            - generic [ref=e90]:
+              - img [ref=e91]
+              - img [ref=e93]
+              - img [ref=e95]
+              - img [ref=e97]
+              - img [ref=e99]
+              - generic [ref=e101]: (4.9)
+            - paragraph [ref=e102]: Breathtaking mountain scenery and alpine adventures await you
+            - generic [ref=e103]:
+              - generic [ref=e104]: From $2499
+              - button "View Details" [ref=e105] [cursor=pointer]
+        - generic [ref=e106]:
+          - img "Paris Romance Getaway" [ref=e108]
+          - generic [ref=e109]:
+            - heading "Paris Romance Getaway" [level=3] [ref=e110]
+            - generic [ref=e111]:
+              - img [ref=e112]
+              - generic [ref=e114]: 5 Days / 4 Nights
+            - generic [ref=e115]:
+              - img [ref=e116]
+              - img [ref=e118]
+              - img [ref=e120]
+              - img [ref=e122]
+              - img [ref=e124]
+              - generic [ref=e126]: (4.7)
+            - paragraph [ref=e127]: Fall in love with the City of Light and its timeless charm
+            - generic [ref=e128]:
+              - generic [ref=e129]: From $1799
+              - button "View Details" [ref=e130] [cursor=pointer]
+      - button "View All Packages" [ref=e132] [cursor=pointer]
+    - generic [ref=e134]:
+      - heading "What Our Travelers Say" [level=2] [ref=e135]
+      - generic [ref=e136]:
+        - generic [ref=e137]:
+          - generic [ref=e138]:
+            - img [ref=e139]
+            - img [ref=e141]
+            - img [ref=e143]
+            - img [ref=e145]
+            - img [ref=e147]
+          - paragraph [ref=e149]: Infiy Wings made our dream vacation a reality! The Bali package was perfectly organized.
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: Sarah Johnson
+            - paragraph [ref=e152]: New York, USA
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - img [ref=e155]
+            - img [ref=e157]
+            - img [ref=e159]
+            - img [ref=e161]
+            - img [ref=e163]
+          - paragraph [ref=e165]: Outstanding service from booking to return. The Swiss Alps trip was unforgettable!
+          - generic [ref=e166]:
+            - paragraph [ref=e167]: Michael Chen
+            - paragraph [ref=e168]: London, UK
+        - generic [ref=e169]:
+          - generic [ref=e170]:
+            - img [ref=e171]
+            - img [ref=e173]
+            - img [ref=e175]
+            - img [ref=e177]
+            - img [ref=e179]
+          - paragraph [ref=e181]: Professional, reliable, and truly care about their customers. Highly recommend!
+          - generic [ref=e182]:
+            - paragraph [ref=e183]: Emma Williams
+            - paragraph [ref=e184]: Sydney, Australia
+  - contentinfo [ref=e185]:
+    - generic [ref=e186]:
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - generic [ref=e189]:
+            - img [ref=e190]
+            - generic [ref=e192]: Infiy Wings
+          - paragraph [ref=e193]: Crafting unforgettable travel experiences since 2010.
+        - generic [ref=e194]:
+          - heading "Quick Links" [level=3] [ref=e195]
+          - list [ref=e196]:
+            - listitem [ref=e197]:
+              - button "Home" [ref=e198] [cursor=pointer]
+            - listitem [ref=e199]:
+              - button "About Us" [ref=e200] [cursor=pointer]
+            - listitem [ref=e201]:
+              - button "Packages" [ref=e202] [cursor=pointer]
+            - listitem [ref=e203]:
+              - button "Contact" [ref=e204] [cursor=pointer]
+        - generic [ref=e205]:
+          - heading "Top Destinations" [level=3] [ref=e206]
+          - list [ref=e207]:
+            - listitem [ref=e208] [cursor=pointer]: Bali
+            - listitem [ref=e209] [cursor=pointer]: Switzerland
+            - listitem [ref=e210] [cursor=pointer]: Paris
+            - listitem [ref=e211] [cursor=pointer]: Tokyo
+        - generic [ref=e212]:
+          - heading "Contact Us" [level=3] [ref=e213]
+          - list [ref=e214]:
+            - listitem [ref=e215]:
+              - img [ref=e216]
+              - generic [ref=e218]: +1 (555) 123-4567
+            - listitem [ref=e219]:
+              - img [ref=e220]
+              - generic [ref=e223]: info@infiywings.com
+          - generic [ref=e224]:
+            - img [ref=e225] [cursor=pointer]
+            - img [ref=e227] [cursor=pointer]
+            - img [ref=e229] [cursor=pointer]
+      - paragraph [ref=e233]: © 2024 Infiy Wings. All rights reserved.
+```

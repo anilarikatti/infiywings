@@ -6,7 +6,7 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 
 const execAsync = promisify(exec);
-const BASE_URL = 'http://localhost:5173';
+const BASE_URL = 'https://anilarikatti.github.io/infiywings/';
 let devServer = null;
 
 // Test results

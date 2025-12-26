@@ -2,7 +2,7 @@
 import http from 'http';
 import { URL } from 'url';
 
-const BASE_URL = 'http://localhost:5173';
+const BASE_URL = 'https://anilarikatti.github.io/infiywings/';
 const TIMEOUT = 5000;
 
 // Test results
